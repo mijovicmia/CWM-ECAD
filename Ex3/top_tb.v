@@ -22,14 +22,15 @@ module top_tb(
 	reg direction;
 	reg enable;
 	reg err;
-	reg [7:0] counter_out
-	reg [7:0] counter_out_prev
+	reg [7:0] counter_out;
+	reg [7:0] counter_out_prev;
 
 //Todo: Clock generation
 	initial begin
 	clk = 1'b0;
 	forever
 		#(CLK_PERIOD/2) clk=~clk;
+	end
 
 //Todo: User logic
     	initial begin
@@ -49,11 +50,11 @@ module top_tb(
 		  err = 1;
 		end
 		#6
-		if((enable&&(counter_out==counter_out_prev))|(!enable&&(counter_out!=counter_prev))) begin
+		if((enable&&(counter_out==counter_out_prev))|(!enable&&(counter_out!=counter_out_prev))) begin
 		  $display("***TEST FAILED! enable error");
 		  err = 1;
 		end
-		if((direction&&(counter_our!=counter_out_prev+1))|(!direction&&(counter_out!=counter_out_prev=1))) begin
+		if((direction&&(counter_out!=counter_out_prev+1))|(!direction&&(counter_out!=counter_out_prev-1))) begin
 		  $display("***TEST FAILED! direction error");
 		  err = 1; 
 		end
@@ -63,6 +64,7 @@ module top_tb(
 		end
 	counter_out_prev = counter_out;
 	
+	end
 	end
 
 
