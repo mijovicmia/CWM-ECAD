@@ -1,7 +1,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 // Test bench for Exercise #3 - Up/Down counter
-// Student Name:
-// Date: 
+// Student Name: Mia Mijovic
+// Date: 09/06/2020
 //
 // Description: A testbench module to test Ex3 - counter
 // Guidance: start with simple tests of the module (how should it react to each 
@@ -45,7 +45,7 @@ module top_tb(
 		#(CLK_PERIOD-6) 
 		if (counter_out != counter_out_prev)
 		begin
-		  $display("***TEST FAILED! tick gap no no");
+		  $display("***TEST FAILED! tick gap error");
 		  err = 1;
 		end
 		#6

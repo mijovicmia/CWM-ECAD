@@ -34,6 +34,7 @@ module counter(
     //Todo: add user logic
 	always@(posedge clk) begin
 		if(rst) counter_out = 0;
+		else
 		if(enable)
 			if (direction) counter_out = counter_out+1;
 			else counter_out = counter_out-1;	
