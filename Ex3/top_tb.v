@@ -22,7 +22,7 @@ module top_tb(
 	reg direction;
 	reg enable;
 	reg err;
-	reg [7:0] counter_out;
+	wire [7:0] counter_out;
 	reg [7:0] counter_out_prev;
 
 //Todo: Clock generation
@@ -34,8 +34,6 @@ module top_tb(
 
 //Todo: User logic
     	initial begin
-	counter_out = 0;
-	counter_out_prev = counter_out;
 	err = 0;
 	direction = 1;
 	rst = 1;
