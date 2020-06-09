@@ -38,9 +38,9 @@ module top_tb(
 	counter_out_prev = counter_out;
 	err = 0;
 	direction = 1;
-	rst = 0;
+	rst = 1;
 	clk = 0;
-	enable = 1;
+	enable = 0;
 	#6
 	forever begin
 		#(CLK_PERIOD-6) 
@@ -63,6 +63,16 @@ module top_tb(
 		  err = 1;
 		end
 	counter_out_prev = counter_out;
+	if (enable == 0)
+         enable = 1;
+         if (counter_out==8'b00000011)
+           direction=0;
+	if ((direction == 0) & (counter_out == 8'b00000001))
+		rst = 1;
+	if (counter_out == 0)
+		rst = 0;
+	if (rst == 1)
+		direction = 1;
 	
 	end
 	end
