@@ -24,7 +24,7 @@ module top_tb(
 
 	initial begin
 	clk = 1'b0;
-	forever
+	forever begin
 		#(CLK_PERIOD/2) clk=~clk;
 	end
 	end
