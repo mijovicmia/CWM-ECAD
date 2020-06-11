@@ -1,7 +1,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 // Exercise #6 
-// Student Name:
-// Date: 
+// Student Name:Mia Mijovic
+// Date: 10/06/2020
 //
 //
 //  Description: In this exercise, you need to design a multiplexer between a dice and traffic 
@@ -22,7 +22,7 @@
 
 `timescale 1ns / 100ps
 
-module top(
+module multiplexer(
 	input clk,
 	input rst,
 	input button,
@@ -32,14 +32,14 @@ module top(
 
 	//wires & registers
 	wire [2:0] throw;
-	wire [2:0] light;
+	wire [2:0] lights;
 		
 
 	//logic
-	traffic_lights light_out(clk, light[2], light[1], light[0]);
+	traffic_lights lights_out(clk, lights[2], lights[1], lights[0]);
 	dice dice_out(clk, rst, button, throw);
 
-	mux choice(clk, throw, light, sel, result);
+	mux choice(throw, lights, sel, result);
 
 
 endmodule
