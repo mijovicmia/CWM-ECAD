@@ -35,7 +35,7 @@ module top_tb(
 	clk = 0;
 	forever begin
 	#CLK_PERIOD
-	if ((light != 3'b100)&&(light != 3'b110)&&(light != 3'b001)) begin
+	if ((light != 3'b100)&&(light != 3'b110)&&(light != 3'b001)&&(light != 3'b010)) begin
 		err = 1;
 		$display("*** Test Failed :( *** light = %b", light);
 	end

@@ -39,6 +39,11 @@ module traffic_lights(
 			amber = 1;
 			green = 0;
 			end
+		default : begin 
+			red = 1;
+			amber = 0;
+			green = 0;
+			end
 		endcase
 	end
 endmodule
